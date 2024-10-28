@@ -21,7 +21,7 @@ CREATE TABLE ProductInventory (
     ProductName VARCHAR(50),
     WarehouseAmount INT,
     WarehouseID INT,
-    FOREIGN KEY (WarehouseID) REFERENCES Warehouses(ID)
+    FOREIGN KEY (WarehouseID) REFERENCES Warehouses(WarehouseID)
 );
 
 -- Populate test data
