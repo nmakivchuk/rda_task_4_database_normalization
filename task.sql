@@ -13,12 +13,12 @@ CREATE TABLE Warehouses (
     WarehouseName VARCHAR(50),
     WarehouseAddress VARCHAR(50),
     CountryID INT,
-    FOREIGN KEY (CountryID) REFERENCES Countries(ID)
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION
 );
 
 CREATE TABLE Products (
     ProductID INT PRIMARY KEY,
-    ProductName VARCHAR(50) UNIQUE
+    ProductName VARCHAR(50)
 );
 
 CREATE TABLE ProductInventory (
@@ -26,9 +26,8 @@ CREATE TABLE ProductInventory (
     ProductID INT,
     WarehouseID INT,
     WarehouseAmount INT,
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-    FOREIGN KEY (WarehouseID) REFERENCES Warehouses(WarehouseID),
-    UNIQUE (ProductID, WarehouseID)
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE NO ACTION,
+    FOREIGN KEY (WarehouseID) REFERENCES Warehouses(WarehouseID) ON DELETE NO ACTION
 );
 
 -- Populate test data
